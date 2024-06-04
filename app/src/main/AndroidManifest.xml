@@ -31,10 +31,10 @@
             android:name=".DetailResultActivity"
             android:exported="false" />
         <activity
-            android:name=".BookmarkActivity"
+            android:name=".bookmark.BookmarkActivity"
             android:exported="false" />
         <activity
-            android:name=".NewsActivity"
+            android:name=".news.NewsActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
