@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CameraActivity">
+    tools:context=".Camera.CameraActivity">
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressIndicator"
@@ -64,12 +65,12 @@
 
     <Button
         android:id="@+id/button_add"
-        android:layout_width="368dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="348dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:backgroundTint="@color/hijau"
-        android:padding="0dp"
+        android:padding="16dp"
         android:text="@string/gallery"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -88,6 +89,7 @@
         app:itemTextColor="@color/hijau"
         app:itemBackground="@color/white"
         app:itemIconTint="@color/hijau"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menu"
+        app:itemIconSize="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

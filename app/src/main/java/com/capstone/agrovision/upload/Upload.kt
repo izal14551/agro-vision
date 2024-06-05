@@ -1,4 +1,8 @@
 package com.capstone.agrovision.upload
 
-class Upload {
-}
+data class Upload(
+    val userName: String,
+    val postTime: String,
+    val postContent: String,
+    val postImage: Int
+)

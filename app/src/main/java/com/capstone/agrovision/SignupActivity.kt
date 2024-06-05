@@ -18,7 +18,7 @@ class SignupActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             // Logika untuk mendaftarkan pengguna baru
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

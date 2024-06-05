@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".TimelineActivity">
+    tools:context=".timeline.TimelineActivity">
 
     <EditText
         android:id="@+id/search"
@@ -30,8 +30,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintTop_toBottomOf="@id/search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

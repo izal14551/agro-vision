@@ -20,12 +20,13 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".upload.UploadActivity"
             android:exported="false" />
         <activity
-            android:name=".UploadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TimelineActivity"
+            android:name=".timeline.TimelineActivity"
             android:exported="false" />
         <activity
             android:name=".DetailResultActivity"
@@ -38,7 +39,8 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AgroVision" />
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />

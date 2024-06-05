@@ -111,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="130dp"
         android:src="@drawable/ic_camera_outline"
         app:backgroundTint="@color/fab_camera"
         android:contentDescription="TODO"
