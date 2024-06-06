@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="18dp"
         android:text="@string/notification"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -75,14 +75,14 @@
         app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.322" />
 
     <TextView
         android:id="@+id/tvTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="18dp"
         android:text="@string/theme"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -100,14 +100,14 @@
         app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399" />
+        app:layout_constraintVertical_bias="0.379" />
 
     <TextView
         android:id="@+id/tvLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="21dp"
         android:text="@string/language"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -117,12 +117,11 @@
         app:layout_constraintTop_toBottomOf="@id/tvTheme" />
 
     <ImageButton
-        android:id="@+id/bookmark"
+        android:id="@+id/btnLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackground"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/button_setting"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="@+id/tvLanguage"
@@ -130,7 +129,7 @@
         app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toEndOf="@+id/tvLanguage"
         app:layout_constraintTop_toBottomOf="@+id/switchTheme"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menuBar"

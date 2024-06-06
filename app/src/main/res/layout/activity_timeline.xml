@@ -58,10 +58,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemTextColor="@color/hijau"
+        app:itemTextColor="@color/menu_icon_color_selector"
         app:itemBackground="@color/white"
-        app:itemIconTint="@color/hijau"
+        app:itemIconTint="@color/menu_icon_color_selector"
         app:menu="@menu/menu"
-        app:itemIconSize="32dp"/>
+        app:itemIconSize="32dp"
+        app:elevation="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

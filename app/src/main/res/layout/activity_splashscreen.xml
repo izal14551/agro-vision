@@ -15,4 +15,38 @@
         android:scaleType="centerCrop"
         android:src="@drawable/splash" />
 
+    <TextView
+        android:id="@+id/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_logo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="-649dp"
+        android:text="Welcome !"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:shadowColor="#80000000"
+        android:shadowDx="10"
+        android:shadowDy="2"
+        android:shadowRadius="10" />
+
+    <TextView
+        android:id="@+id/splash_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_logo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="-605dp"
+        android:text="Analyzing plant health..."
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:shadowColor="#80000000"
+        android:shadowDx="10"
+        android:shadowDy="2"
+        android:shadowRadius="10" />
+
 </RelativeLayout>
