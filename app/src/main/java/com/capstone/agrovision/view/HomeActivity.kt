@@ -1,5 +1,5 @@
 // HomeActivity.kt
-package com.capstone.agrovision
+package com.capstone.agrovision.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,9 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.capstone.agrovision.bookmark.BookmarkActivity
-import com.capstone.agrovision.news.NewsActivity
+import com.capstone.agrovision.R
+import com.capstone.agrovision.view.bookmark.BookmarkActivity
+import com.capstone.agrovision.view.news.NewsActivity
 import com.capstone.agrovision.timeline.TimelineActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton

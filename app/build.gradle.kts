@@ -16,6 +16,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL_AGRO", "\"https://agro-vision-gt7ijbzyiq-et.a.run.app/\"")
+        buildConfigField("String", "BASE_URL_NEWS", "\"https://newsapi.org/v2/\"")
+        buildConfigField("String", "API_KEY_NEWS", "\"e6ccd305a91d434f963de6b5797bb2fc\"")
     }
 
     buildTypes {
@@ -65,4 +69,9 @@ dependencies {
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 }

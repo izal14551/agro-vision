@@ -1,4 +1,4 @@
-package com.capstone.agrovision.news
+package com.capstone.agrovision.view.news
 
 import android.view.LayoutInflater
 import android.view.View

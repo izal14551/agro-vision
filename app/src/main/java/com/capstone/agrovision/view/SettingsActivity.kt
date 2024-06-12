@@ -1,5 +1,5 @@
 // SettingsActivity.kt
-package com.capstone.agrovision
+package com.capstone.agrovision.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.capstone.agrovision.R
 import com.capstone.agrovision.timeline.TimelineActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

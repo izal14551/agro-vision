@@ -1,4 +1,4 @@
-package com.capstone.agrovision.upload
+package com.capstone.agrovision.view.upload
 
 data class Upload(
     val userName: String,

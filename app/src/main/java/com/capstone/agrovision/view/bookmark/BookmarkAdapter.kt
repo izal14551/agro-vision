@@ -1,4 +1,4 @@
-package com.capstone.agrovision.bookmark
+package com.capstone.agrovision.view.bookmark
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.agrovision.R
-import com.capstone.agrovision.result.Result
+import com.capstone.agrovision.view.result.Result
 
 class BookmarkAdapter(private val bookmarkList: List<Result>, private val onItemClickListener: (Result) -> Unit) :
     RecyclerView.Adapter<BookmarkAdapter.BookmarkViewHolder>() {

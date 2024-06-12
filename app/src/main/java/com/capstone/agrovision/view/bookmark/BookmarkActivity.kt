@@ -1,4 +1,4 @@
-package com.capstone.agrovision.bookmark
+package com.capstone.agrovision.view.bookmark
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.agrovision.DetailResultActivity
+import com.capstone.agrovision.view.DetailResultActivity
 import com.capstone.agrovision.R
-import com.capstone.agrovision.result.Result
+import com.capstone.agrovision.view.result.Result
 
 class BookmarkActivity : AppCompatActivity() {
 

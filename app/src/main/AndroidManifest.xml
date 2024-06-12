@@ -13,47 +13,47 @@
         android:theme="@style/Theme.AgroVision"
         tools:targetApi="31">
         <activity
-            android:name=".SignupActivity"
+            android:name=".view.SignupActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".CameraActivity"
+            android:name=".view.CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".upload.UploadActivity"
+            android:name=".view.UploadActivity"
             android:exported="false" />
         <activity
             android:name=".timeline.TimelineActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailResultActivity"
+            android:name=".view.DetailResultActivity"
             android:exported="false" />
         <activity
-            android:name=".bookmark.BookmarkActivity"
+            android:name=".view.bookmark.BookmarkActivity"
             android:exported="false" />
         <activity
-            android:name=".news.NewsActivity"
+            android:name=".view.news.NewsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.HomeActivity"
             android:exported="false"
             android:theme="@style/Theme.AgroVision" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".view.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".view.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".SplashscreenActivity"
+            android:name=".view.SplashscreenActivity"
             android:exported="true"
             android:theme="@style/NoActionBarTheme" >
             <intent-filter>

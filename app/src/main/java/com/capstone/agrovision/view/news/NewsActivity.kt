@@ -1,4 +1,4 @@
-package com.capstone.agrovision.news
+package com.capstone.agrovision.view.news
 
 import android.os.Bundle
 import android.view.View

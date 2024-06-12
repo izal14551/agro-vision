@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.agrovision.HomeActivity
+import com.capstone.agrovision.view.HomeActivity
 import com.capstone.agrovision.R
-import com.capstone.agrovision.SettingsActivity
-import com.capstone.agrovision.upload.TimelineAdapter
-import com.capstone.agrovision.upload.Upload
-import com.capstone.agrovision.upload.UploadActivity
+import com.capstone.agrovision.view.SettingsActivity
+import com.capstone.agrovision.view.upload.TimelineAdapter
+import com.capstone.agrovision.view.upload.Upload
+import com.capstone.agrovision.view.UploadActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

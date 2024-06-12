@@ -1,4 +1,4 @@
-package com.capstone.agrovision.upload
+package com.capstone.agrovision.view.upload
 
 import android.view.LayoutInflater
 import android.view.View

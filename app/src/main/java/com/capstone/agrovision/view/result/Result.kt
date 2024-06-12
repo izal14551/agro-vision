@@ -1,4 +1,4 @@
-package com.capstone.agrovision.result
+package com.capstone.agrovision.view.result
 
 import java.io.Serializable
 
