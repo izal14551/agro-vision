@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.capstone.agrovision.R
 import com.capstone.agrovision.view.bookmark.BookmarkActivity
-import com.capstone.agrovision.view.news.NewsActivity
 import com.capstone.agrovision.timeline.TimelineActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton

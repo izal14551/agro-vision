@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
     private const val BASE_URL_AGRO = BuildConfig.BASE_URL_AGRO
-    private const val BASE_URL_NEWS = BuildConfig.BASE_URL_NEWS
+    const val BASE_URL_NEWS = BuildConfig.BASE_URL_NEWS
+    const val API_KEY_NEWS = BuildConfig.API_KEY_NEWS
 
     fun getApiAgro(): ApiService {
         val loggingInterceptor =
