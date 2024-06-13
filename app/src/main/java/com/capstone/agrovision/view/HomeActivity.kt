@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import com.capstone.agrovision.R
 import com.capstone.agrovision.view.bookmark.BookmarkActivity
 import com.capstone.agrovision.timeline.TimelineActivity
+import com.capstone.agrovision.view.addGallery.FeatureCameraActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -36,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         fabCamera.setOnClickListener {
-            val intent = Intent(this, CameraActivity::class.java)
+            val intent = Intent(this, FeatureCameraActivity::class.java)
             startActivity(intent)
         }
 

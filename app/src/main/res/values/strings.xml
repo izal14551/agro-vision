@@ -22,4 +22,9 @@
     <string name="home">My Agro</string>
     <string name="Timeline">Timeline</string>
     <string name="setting">Settings\n</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="guest">Guest</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu</string>
+    <string name="Upload">Analyze</string>
 </resources>
