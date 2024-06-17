@@ -57,7 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="BLALALLALA"
+                android:textAlignment="center"
+                android:text="@string/news"
                 android:textSize="14sp"
                 android:textStyle="italic"/>
         </LinearLayout>
@@ -99,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="BLALALLALA"
+                android:text="@string/bookmark_label"
                 android:textSize="14sp"
                 android:textStyle="italic"/>
         </LinearLayout>

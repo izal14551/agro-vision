@@ -1,4 +1,4 @@
-package com.capstone.agrovision.view
+package com.capstone.agrovision.view.news
 
 import android.content.Intent
 import android.net.Uri
@@ -11,10 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.agrovision.R
-import com.capstone.agrovision.data.news.NewsAdapter
-import com.capstone.agrovision.data.news.NewsViewModel
 import com.capstone.agrovision.databinding.ActivityNewsBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NewsActivity : AppCompatActivity() {
 
@@ -39,6 +36,9 @@ class NewsActivity : AppCompatActivity() {
         newsRecyclerView.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(this@NewsActivity)
+
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = "News"
         }
     }
 
@@ -71,4 +71,3 @@ class NewsActivity : AppCompatActivity() {
         }
     }
 }
-

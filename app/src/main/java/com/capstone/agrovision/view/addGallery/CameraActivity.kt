@@ -19,8 +19,12 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import com.capstone.agrovision.databinding.ActivityCameraBinding
 import com.capstone.agrovision.view.upload.Utils.createCustomTempFile
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
@@ -113,7 +117,7 @@ class CameraActivity : AppCompatActivity() {
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@CameraActivity,
-                    "Gagal memunculkan kamera.",
+                    "Failed to bind camera provider",
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.e(TAG, "startCamera: ${exc.message}")
@@ -123,23 +127,29 @@ class CameraActivity : AppCompatActivity() {
 
     private fun takePhoto() {
         val imageCapture = imageCapture ?: return
-        val photoFile = createCustomTempFile(application)
+        val photoFile = createCustomTempFile(applicationContext)
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val intent = Intent()
-                    intent.putExtra(EXTRA_CAMERAX_IMAGE, photoFile.absolutePath)
-                    setResult(CAMERAX_RESULT, intent)
+                    val savedUri = FileProvider.getUriForFile(
+                        this@CameraActivity,
+                        "${applicationContext.packageName}.provider",
+                        photoFile
+                    )
+                    val intent = Intent().apply {
+                        putExtra(EXTRA_CAMERAX_IMAGE, savedUri.toString())
+                    }
+                    setResult(RESULT_OK, intent)
                     finish()
                 }
 
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
                         this@CameraActivity,
-                        "Gagal mengambil gambar.",
+                        "Failed to capture image",
                         Toast.LENGTH_SHORT
                     ).show()
                     Log.e(TAG, "onError: ${exc.message}")
@@ -147,6 +157,7 @@ class CameraActivity : AppCompatActivity() {
             }
         )
     }
+
 
     private fun hideSystemUI() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

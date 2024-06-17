@@ -1,6 +1,12 @@
 package com.capstone.agrovision.view.result
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-class Result(val id: Int, val tvBookmark: String, val description: String, val imageUrl: Int) :
-    Serializable
+@Parcelize
+data class Result(
+    val id: Int,
+    val result: String,
+    val description: String,
+    val imageResource: Int
+) : Parcelable

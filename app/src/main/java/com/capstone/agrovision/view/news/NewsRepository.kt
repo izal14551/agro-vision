@@ -1,4 +1,4 @@
-package com.capstone.agrovision.data.news
+package com.capstone.agrovision.view.news
 
 import com.capstone.agrovision.data.remote.retrofit.ApiConfig
 import com.capstone.agrovision.data.remote.response.NewsResponse

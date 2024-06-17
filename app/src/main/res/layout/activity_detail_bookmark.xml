@@ -2,14 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".view.DetailResultActivity">
+    tools:context=".view.DetailBookmarkActivity">
 
     <ImageView
-        android:id="@+id/imageDetail"
+        android:id="@+id/savedImage"
         android:layout_width="0dp"
         android:layout_height="350dp"
         android:scaleType="fitCenter"
@@ -24,10 +23,10 @@
         app:layout_constraintWidth_percent="0.85" />
 
     <TextView
-        android:id="@+id/tvDetail"
+        android:id="@+id/tvSavedResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="20dp"
         android:text="@string/result"
         android:textSize="20sp"
@@ -35,7 +34,7 @@
         app:layout_constraintEnd_toStartOf="@id/bookmark"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageDetail" />
+        app:layout_constraintTop_toBottomOf="@id/savedImage" />
 
     <ImageButton
         android:id="@+id/bookmark"
@@ -47,10 +46,10 @@
         android:layout_marginStart="145dp"
         android:layout_marginEnd="0dp"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetail"
-        app:layout_constraintStart_toEndOf="@+id/tvDetail"
+        app:layout_constraintTop_toBottomOf="@+id/savedImage"
+        app:layout_constraintStart_toEndOf="@+id/tvSavedResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDetail"/>
+        app:layout_constraintBottom_toBottomOf="@+id/tvSavedResult"/>
 
     <View
         android:layout_width="0dp"
@@ -66,16 +65,16 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <TextView
-        android:id="@+id/tvDetailDesc"
+        android:id="@+id/tvSavedResultDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="68dp"
         android:text="@string/resultDesc"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@id/bookmark"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageDetail" />
+        app:layout_constraintTop_toBottomOf="@id/savedImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

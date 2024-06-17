@@ -1,7 +1,7 @@
-// TimelineActivity.kt
-package com.capstone.agrovision.timeline
+package com.capstone.agrovision.view.timeline
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
@@ -12,29 +12,40 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.agrovision.view.HomeActivity
 import com.capstone.agrovision.R
 import com.capstone.agrovision.view.SettingsActivity
-import com.capstone.agrovision.view.upload.TimelineAdapter
+import com.capstone.agrovision.view.upload.UploadActivity
 import com.capstone.agrovision.view.upload.Upload
-import com.capstone.agrovision.view.UploadActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class TimelineActivity : AppCompatActivity() {
+
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var uploads: MutableList<Upload>
+    private lateinit var adapter: TimelineAdapter
+
+    companion object {
+        private const val UPLOAD_REQUEST_CODE = 100
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timeline)
 
-        val recyclerView: RecyclerView = findViewById(R.id.rvTimeline)
+        recyclerView = findViewById(R.id.rvTimeline)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = TimelineAdapter(getUploads())
+        uploads = getUploads().toMutableList()
+        adapter = TimelineAdapter(uploads)
+        recyclerView.adapter = adapter
+
+        supportActionBar?.title = "Timeline"
 
         setupBottomNavigation()
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this, UploadActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, UPLOAD_REQUEST_CODE)
         }
     }
 
@@ -55,12 +66,7 @@ class TimelineActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        // Tambahkan ini di setiap Activity, ganti 'R.color.menu_icon_color_selector' dengan warna yang sesuai
         bottomNavigationView.itemIconTintList = ContextCompat.getColorStateList(this, R.color.menu_icon_color_selector)
-    }
-
-    private fun setupButtonListeners() {
-        // TODO: Tambahkan setup button listeners jika diperlukan
     }
 
     private fun navigateTo(activityClass: Class<*>) {
@@ -76,12 +82,32 @@ class TimelineActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == UPLOAD_REQUEST_CODE && resultCode == RESULT_OK) {
+            val imageUriString = data?.getStringExtra("imageUri")
+            val description = data?.getStringExtra("description")
+
+            if (imageUriString != null && description != null) {
+                val imageUri = Uri.parse(imageUriString)
+
+                val newUpload = Upload("Current User", "Just Now", description, imageUri)
+                uploads.add(0, newUpload)
+
+                adapter.notifyDataSetChanged()
+
+                showToast("Upload berhasil")
+            } else {
+                showToast("Gagal memproses upload")
+            }
+        }
+    }
+
     private fun getUploads(): List<Upload> {
-        // Dummy data
         return listOf(
-            Upload("User1", "2 hours ago", "This is the first Upload", R.drawable.ic_launcher_background),
-            Upload("User2", "5 hours ago", "This is the second Upload", R.drawable.ic_launcher_background),
-            Upload("User3", "1 day ago", "This is the third Upload", R.drawable.ic_launcher_background)
+            Upload("User1", "2 hours ago", "This is the first Upload", Uri.parse("android.resource://com.capstone.agrovision/" + R.drawable.ic_launcher_background)),
+            Upload("User2", "5 hours ago", "This is the second Upload", Uri.parse("android.resource://com.capstone.agrovision/" + R.drawable.ic_launcher_background)),
+            Upload("User3", "1 day ago", "This is the third Upload", Uri.parse("android.resource://com.capstone.agrovision/" + R.drawable.ic_launcher_background))
         )
     }
 }

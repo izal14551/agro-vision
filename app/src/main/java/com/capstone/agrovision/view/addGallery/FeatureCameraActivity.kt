@@ -6,31 +6,29 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import android.view.View
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.capstone.agrovision.R
 import com.capstone.agrovision.databinding.ActivityFiturCameraBinding
-import com.capstone.agrovision.timeline.TimelineActivity
+import com.capstone.agrovision.view.timeline.TimelineActivity
 import com.capstone.agrovision.view.HomeActivity
-import com.capstone.agrovision.view.MainActivity
+import com.capstone.agrovision.view.result.ResultActivity
 import com.capstone.agrovision.view.SettingsActivity
-import com.capstone.agrovision.view.bookmark.BookmarkActivity
 import com.capstone.agrovision.view.upload.Utils.reduceFileImage
 import com.capstone.agrovision.view.upload.Utils.uriToFile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 
 class FeatureCameraActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityFiturCameraBinding
     private lateinit var bottomNavigationView: BottomNavigationView
     private var currentImageUri: Uri? = null
@@ -66,6 +64,7 @@ class FeatureCameraActivity : AppCompatActivity() {
             insets
         }
 
+        setUpActionBar()
         setupBottomNavigation()
 
         if (!allPermissionsGranted()) {
@@ -81,31 +80,41 @@ class FeatureCameraActivity : AppCompatActivity() {
         }
 
         binding.buttonAdd.setOnClickListener {
-            uploadImage()
+            analyzeImage()
         }
+    }
 
+    private fun setUpActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Analyze"
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun startGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        launcherGallery.launch(intent)
+        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+            type = "image/*"
+        }
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
     }
 
-    private val launcherGallery = registerForActivityResult(
+    private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if (result.resultCode == RESULT_OK && result.data != null) {
-            currentImageUri = result.data?.data
-            showImage()
-        } else {
-            Log.d("Photo Picker", "No media selected")
-        }
-    }
-
-    private fun showImage() {
-        currentImageUri?.let {
-            Log.d("Image URI", "showImage: $it")
-            binding.previewImageView.setImageURI(it)
+        if (result.resultCode == RESULT_OK) {
+            result.data?.data?.let { uri ->
+                currentImageUri = uri
+                showImage()
+            } ?: showToast("Failed to get image URI")
         }
     }
 
@@ -116,31 +125,35 @@ class FeatureCameraActivity : AppCompatActivity() {
 
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CAMERAX_RESULT) {
-            currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)?.toUri()
-            showImage()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val uriString = result.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)
+            uriString?.let {
+                currentImageUri = Uri.parse(it)
+                showImage()
+            } ?: showToast("Failed to get camera image URI")
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun uploadImage() {
+    private fun showImage() {
+        currentImageUri?.let {
+            Log.d(TAG, "Displaying image: $it")
+            binding.previewImageView.setImageURI(it)
+        } ?: Log.d(TAG, "No image to display")
+    }
+
+    private fun analyzeImage() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, this).reduceFileImage()
             saveImageLocally(imageFile)
-            // Atau: Unggah ke server
-            uploadImageToServer(imageFile)
-
-            navigateTo(BookmarkActivity::class.java)
+            navigateTo(ResultActivity::class.java)
         } ?: showToast(getString(R.string.empty_image_warning))
     }
 
     private fun saveImageLocally(file: File) {
-        // Implementasi penyimpanan lokal di sini
     }
 
     private fun uploadImageToServer(file: File) {
-        // Implementasi pengunggahan ke server di sini
     }
 
     private fun setupBottomNavigation() {
@@ -165,25 +178,19 @@ class FeatureCameraActivity : AppCompatActivity() {
     }
 
     private fun navigateTo(activityClass: Class<*>) {
-        startActivity(Intent(this, activityClass))
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+        val intent = Intent(this, activityClass)
+        currentImageUri?.let { uri ->
+            intent.putExtra(ResultActivity.IMAGE_URI, uri.toString())
+        }
+        startActivity(intent)
     }
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun navigateToMain() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
-    }
-
     companion object {
+        const val TAG = "ImagePicker"
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
-        private const val CAMERAX_RESULT = 200
     }
 }

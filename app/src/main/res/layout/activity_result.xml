@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".view.ResultActivity">
+    tools:context=".view.result.ResultActivity">
 
     <ImageView
         android:id="@+id/imageResult"
@@ -27,7 +26,7 @@
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="20dp"
         android:text="@string/result"
         android:textSize="20sp"
@@ -66,10 +65,10 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <TextView
-        android:id="@+id/tvResultDesc"
+        android:id="@+id/tvDescriptionResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="68dp"
         android:text="@string/resultDesc"
         android:textSize="18sp"
@@ -79,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageResult" />
 
     <Button
-        android:id="@+id/btnToHome"
+        android:id="@+id/btnHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -89,6 +88,6 @@
         android:backgroundTint="@color/hijau"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvResultDesc" />
+        app:layout_constraintTop_toBottomOf="@id/tvDescriptionResult" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

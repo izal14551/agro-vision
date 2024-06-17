@@ -5,9 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -31,9 +29,6 @@
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".view.CameraActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.LoginActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
@@ -41,19 +36,19 @@
             android:name=".view.addGallery.FeatureCameraActivity"
             android:exported="false" />
         <activity
-            android:name=".view.UploadActivity"
+            android:name=".view.upload.UploadActivity"
             android:exported="false" />
         <activity
-            android:name=".timeline.TimelineActivity"
+            android:name=".view.timeline.TimelineActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DetailResultActivity"
+            android:name=".view.DetailBookmarkActivity"
             android:exported="false" />
         <activity
             android:name=".view.bookmark.BookmarkActivity"
             android:exported="false" />
         <activity
-            android:name=".view.NewsActivity"
+            android:name=".view.news.NewsActivity"
             android:exported="false" />
         <activity
             android:name=".view.HomeActivity"
@@ -63,7 +58,7 @@
             android:name=".view.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ResultActivity"
+            android:name=".view.result.ResultActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"
@@ -79,6 +74,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

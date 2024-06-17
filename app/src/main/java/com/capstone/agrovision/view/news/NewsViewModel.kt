@@ -1,4 +1,4 @@
-package com.capstone.agrovision.data.news
+package com.capstone.agrovision.view.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

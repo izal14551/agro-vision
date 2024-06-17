@@ -11,11 +11,10 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        val btnRegister = findViewById<Button>(R.id.btnSignup) // Initialize the login button
+        val btnRegister = findViewById<Button>(R.id.btnSignup)
         val btnBackToLogin = findViewById<Button>(R.id.loginTab)
 
         btnRegister.setOnClickListener {
-            // Logika untuk mendaftarkan pengguna baru
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

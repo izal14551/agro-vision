@@ -1,4 +1,3 @@
-// HomeActivity.kt
 package com.capstone.agrovision.view
 
 import android.content.Intent
@@ -10,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.capstone.agrovision.R
 import com.capstone.agrovision.view.bookmark.BookmarkActivity
-import com.capstone.agrovision.timeline.TimelineActivity
+import com.capstone.agrovision.view.timeline.TimelineActivity
 import com.capstone.agrovision.view.addGallery.FeatureCameraActivity
+import com.capstone.agrovision.view.news.NewsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -66,7 +66,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupButtonListeners() {
-        // TODO: Tambahkan setup button listeners jika diperlukan
     }
 
     private fun navigateTo(activityClass: Class<*>) {
@@ -78,7 +77,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+//        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 }

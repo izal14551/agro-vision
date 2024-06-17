@@ -11,11 +11,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val btnLogin = findViewById<Button>(R.id.loginButton) // Initialize the login button
+        val btnLogin = findViewById<Button>(R.id.loginButton)
         val btnSignUp = findViewById<Button>(R.id.signupTab)
 
         btnLogin.setOnClickListener {
-            // Logika untuk memeriksa kredensial pengguna
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }

@@ -1,4 +1,4 @@
-package com.capstone.agrovision.view.upload
+package com.capstone.agrovision.view.timeline
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.capstone.agrovision.R
+import com.capstone.agrovision.view.upload.Upload
 
 class TimelineAdapter(private val postList: List<Upload>) :
     RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>() {
@@ -29,7 +31,11 @@ class TimelineAdapter(private val postList: List<Upload>) :
         holder.userName.text = post.userName
         holder.postTime.text = post.postTime
         holder.postContent.text = post.postContent
-        holder.postImage.setImageResource(post.postImage)
+
+        // Gunakan Glide untuk memuat gambar dari URI
+        Glide.with(holder.postImage.context)
+            .load(post.postImage)
+            .into(holder.postImage)
     }
 
     override fun getItemCount() = postList.size

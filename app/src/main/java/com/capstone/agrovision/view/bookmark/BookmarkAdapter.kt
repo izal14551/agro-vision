@@ -1,6 +1,6 @@
 package com.capstone.agrovision.view.bookmark
 
-import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.agrovision.R
-import com.capstone.agrovision.view.result.Result
+import com.capstone.agrovision.data.local.Bookmark
 
-class BookmarkAdapter(private val bookmarkList: List<Result>, private val onItemClickListener: (Result) -> Unit) :
-    RecyclerView.Adapter<BookmarkAdapter.BookmarkViewHolder>() {
+class BookmarkAdapter(
+    private val bookmarkList: List<Bookmark>,
+    private val onItemClickListener: (Bookmark) -> Unit
+) : RecyclerView.Adapter<BookmarkAdapter.BookmarkViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_bookmark, parent, false)
@@ -20,20 +22,26 @@ class BookmarkAdapter(private val bookmarkList: List<Result>, private val onItem
 
     override fun onBindViewHolder(holder: BookmarkViewHolder, position: Int) {
         val bookmark = bookmarkList[position]
-        holder.savedImage.setImageResource(bookmark.imageUrl)
-        holder.tvBookmark.text = bookmark.tvBookmark
-        holder.tvDescResult.text = bookmark.description
-
-        holder.itemView.setOnClickListener {
-            onItemClickListener(bookmark)
-        }
+        holder.bind(bookmark, onItemClickListener)
     }
 
     override fun getItemCount(): Int = bookmarkList.size
 
     class BookmarkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val savedImage: ImageView = itemView.findViewById(R.id.savedImage)
-        val tvBookmark: TextView = itemView.findViewById(R.id.tvBookmark)
-        val tvDescResult: TextView = itemView.findViewById(R.id.tvDescResult)
+        private val savedImage: ImageView = itemView.findViewById(R.id.savedImage)
+        private val tvResult: TextView = itemView.findViewById(R.id.tvSavedResult)
+        private val tvDescResult: TextView = itemView.findViewById(R.id.tvSavedResultDesc)
+
+        fun bind(bookmark: Bookmark, onItemClick: (Bookmark) -> Unit) {
+            // Here, assuming Bookmark has appropriate properties like imageUri, result, description
+            savedImage.setImageURI(Uri.parse(bookmark.imageUri))
+            tvResult.text = bookmark.result
+            tvDescResult.text = bookmark.description
+
+            // Handle item click event
+            itemView.setOnClickListener {
+                onItemClick(bookmark)
+            }
+        }
     }
 }

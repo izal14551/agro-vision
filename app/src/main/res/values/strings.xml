@@ -22,9 +22,21 @@
     <string name="home">My Agro</string>
     <string name="Timeline">Timeline</string>
     <string name="setting">Settings\n</string>
-    <string name="login">Login</string>
+    <string name="login">  Login</string>
     <string name="signup">Sign Up</string>
     <string name="guest">Guest</string>
     <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu</string>
     <string name="Upload">Analyze</string>
+    <string name="fab_login">Login via Floating Action Button</string>
+    <string name="fab_signup">Sign Up via Floating Action Button</string>
+    <string name="fab_guest">Guest Login via Floating Action Button</string>
+    <string name="guest_signup">1</string>
+    <string name="guest_login">Guest</string>
+    <string name="default_result_description">default result description</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="username_label">Username</string>
+    <string name="news">Discover the latest\ninsights.</string>
+    <string name="bookmark_label">Your saved analyzes.</string>
+
 </resources>

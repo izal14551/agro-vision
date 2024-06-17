@@ -1,4 +1,3 @@
-// SettingsActivity.kt
 package com.capstone.agrovision.view
 
 import android.content.Intent
@@ -9,15 +8,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.capstone.agrovision.R
-import com.capstone.agrovision.timeline.TimelineActivity
+import com.capstone.agrovision.view.timeline.TimelineActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SettingsActivity : AppCompatActivity() {
+
     private lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings)
+
+        supportActionBar?.title = "Settings"
 
         setupBottomNavigation()
     }
@@ -41,13 +44,11 @@ class SettingsActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        // Tambahkan ini di setiap Activity, ganti 'R.color.menu_icon_color_selector' dengan warna yang sesuai
         bottomNavigationView.itemIconTintList =
             ContextCompat.getColorStateList(this, R.color.menu_icon_color_selector)
     }
 
     private fun setupButtonListeners() {
-        // TODO: Tambahkan setup button listeners jika diperlukan
     }
 
     private fun navigateTo(activityClass: Class<*>) {
@@ -59,7 +60,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+//        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 }

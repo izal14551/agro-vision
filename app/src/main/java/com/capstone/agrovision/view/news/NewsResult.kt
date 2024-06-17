@@ -1,4 +1,4 @@
-package com.capstone.agrovision.data.news
+package com.capstone.agrovision.view.news
 
 sealed class NewsResult<out R> private constructor() {
     data class Success<out T>(val data: T) : NewsResult<T>()
